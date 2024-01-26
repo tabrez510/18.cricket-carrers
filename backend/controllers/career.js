@@ -2,8 +2,8 @@ const Carrer = require('../models/carrer');
 
 exports.getCarrers = async(req, res) => {
     try {
-        const carrers = await Carrer.findAll();
-        res.json({status: true, ...carrers.dataValues});
+        const careers = await Carrer.findAll();
+        res.json(careers);
     } catch(err){
         res.status(500).json({status: false, message: 'Internal Server Error'});
     }
@@ -12,7 +12,7 @@ exports.getCarrers = async(req, res) => {
 exports.getCareerById = async(req, res) => {
     const playerId = req.params.id;
     try{
-        const  carrer = await findByPk(playerId);
+        const  carrer = await Carrer.findByPk(playerId);
         res.json({status: true, ...carrer.dataValues});
     } catch(err) {
         res.status(500).json({status: false, message: 'Internal Server Error'});
@@ -20,10 +20,10 @@ exports.getCareerById = async(req, res) => {
 }
 
 exports.postCarrer = async(req, res) => {
-    const {name, dob, image, birhtPlace, carrerDesc, matches, score, fifties, centuries, wickets, average} = req.body;
+    const {name, dob, imageUrl, birthPlace, careerDesc, matches, score, fifties, centuries, wickets, average} = req.body;
 
     try {
-        const carrer = await Carrer.create({name, dob, image, birhtPlace, carrerDesc, matches, score, fifties, centuries, wickets, average});
+        const carrer = await Carrer.create({name, dob, imageUrl, birthPlace, careerDesc, matches, score, fifties, centuries, wickets, average});
         res.json({status: true, ...carrer.dataValues});
     } catch(err) {
         console.log(err);
@@ -33,8 +33,8 @@ exports.postCarrer = async(req, res) => {
 
 exports.updateCarrer = async(req, res) => {
     const playerId = req.params.id;
-    const {name, dob, image, birhtPlace, carrerDesc, matches, score, fifties, centuries, wickets, average} = req.body;
-    const obj = {name, dob, image, birhtPlace, carrerDesc, matches, score, fifties, centuries, wickets, average};
+    const {name, dob, imageUrl, birthPlace, careerDesc, matches, score, fifties, centuries, wickets, average} = req.body;
+    const obj = {name, dob, imageUrl, birthPlace, careerDesc, matches, score, fifties, centuries, wickets, average};
 
     try{
         const rowsAffected = await Carrer.update(obj,

@@ -9,9 +9,12 @@ const Product = sequelize.define('cricketer', {
     allowNull: false,
     primaryKey: true
   },
-  name: Sequelize.STRING,
+  name: {
+    type: Sequelize.STRING,
+    allowNull: false
+  },
   dob: {
-    type: Sequelize.DATEONLY,
+    type: Sequelize.STRING,
     allowNull: false
   },
   imageUrl: {
@@ -23,7 +26,7 @@ const Product = sequelize.define('cricketer', {
     allowNull: false
   },
   careerDesc: {
-    type: Sequelize.STRING,
+    type: Sequelize.TEXT,
     allowNull: false
   },
   matches: {

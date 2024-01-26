@@ -15,7 +15,7 @@ app.use(bodyParser.json());
 app.use('/api', carrerRoutes);
 
 sequelize
-    .sync()
+    .sync({alter: true})
     .then(() => {
         app.listen(3000, () => console.log('server is running on 3000 PORT'));
     })

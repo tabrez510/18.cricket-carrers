@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const carrerControllers = require('../controllers/carrer');
+const carrerControllers = require('../controllers/career');
 
 
-router.get('/carrer', carrerControllers.getCarrers);
-router.get('/carrer/:id', carrerControllers.getCareerById);
-router.post('/carrer', carrerControllers.postCarrer);
-router.put('/carrer/:id', carrerControllers.updateCarrer);
+router.get('/career', carrerControllers.getCarrers);
+router.get('/career/:id', carrerControllers.getCareerById);
+router.post('/career', carrerControllers.postCarrer);
+router.put('/career/:id', carrerControllers.updateCarrer);
 
 module.exports = router;
