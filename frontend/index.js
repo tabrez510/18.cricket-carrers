@@ -56,6 +56,7 @@ async function handleSearch(event) {
 
 function showPlayer (players) {
     const playerContainer = document.querySelector('.player-container');
+    playerContainer.innerHTML = ''; // Clear existing content
 
     players.forEach((value, index) => {
         if(index==0) {
